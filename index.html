@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelShrink | PNG to WebP Converter & Compressor</title>
+    <meta name="description" content="Ubah format gambar PNG ke WebP dan perkecil ukuran file tanpa pecah dengan teknologi kompresi tercanggih langsung di browser Anda.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="active">Converter</a>
+        <a href="remove-bg.html">Hapus Background</a>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>PixelShrink</h1>
+            <p>Konversi PNG ke WebP & Perkecil Ukuran File dengan Kualitas Maksimal</p>
+        </header>
+
+        <main class="main-card">
+            <div class="drop-zone" id="drop-zone">
+                <span class="drop-zone-icon">🖼️</span>
+                <p>Klik atau Seret Gambar PNG ke Sini</p>
+                <span>Mendukung format PNG (Maks 10MB)</span>
+                <input type="file" id="file-input" accept="image/png">
+            </div>
+
+            <div class="controls" id="controls">
+                <div class="control-group">
+                    <label for="quality">Kualitas: <span id="quality-val">80%</span></label>
+                    <input type="range" id="quality" min="1" max="100" value="80">
+                </div>
+                <div class="control-group">
+                    <label>Tipe Konversi: <span>WebP (High-Def)</span></label>
+                    <div style="font-size: 0.9rem; color: var(--text-muted); margin-top: 5px;">
+                        Optimasi otomatis untuk ukuran file terkecil.
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-section" id="preview-section">
+                <div class="preview-box">
+                    <h3>Original (PNG)</h3>
+                    <div class="img-container">
+                        <img id="original-preview" src="" alt="Original Preview">
+                    </div>
+                    <div class="stats">
+                        <span id="original-size">Ukuran: 0 KB</span>
+                    </div>
+                </div>
+
+                <div class="preview-box">
+                    <h3>Optimized (WebP)</h3>
+                    <div class="img-container">
+                        <img id="optimized-preview" src="" alt="Optimized Preview">
+                    </div>
+                    <div class="stats">
+                        <span id="optimized-size">Ukuran: 0 KB</span>
+                        <span class="savings" id="savings-pct">-0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions" id="actions" style="display: none;">
+                <button class="btn btn-secondary" id="reset-btn">
+                    <span>🔄</span> Hapus & Ulangi
+                </button>
+                <a href="#" class="btn btn-primary" id="download-btn" download="optimized-image.webp">
+                    <span>📥</span> Download WebP
+                </a>
+            </div>
+        </main>
+
+        <div id="loading" style="display: none; margin-top: 2rem; text-align: center;">
+            <p style="color: var(--primary);">Memproses gambar...</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 PixelShrink. Diproses secara lokal di browser Anda untuk keamanan maksimal.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
