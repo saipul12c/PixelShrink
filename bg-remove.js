@@ -1,3 +1,5 @@
+import { removeBackground } from 'https://cdn.jsdelivr.net/npm/@imgly/background-removal@latest/+esm';
+
 document.addEventListener('DOMContentLoaded', () => {
     const dropZone = document.getElementById('drop-zone');
     const fileInput = document.getElementById('file-input');
@@ -50,14 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
         reader.readAsDataURL(file);
 
         try {
-            // Check if library is loaded
-            if (typeof imglyRemoveBackground === 'undefined') {
-                throw new Error('Library penghapus background sedang memuat atau gagal dimuat. Pastikan koneksi internet stabil.');
-            }
-
             // Execute background removal
             // Config can be added: { progress: (p) => console.log(p) }
-            const resultBlob = await imglyRemoveBackground(file);
+            const resultBlob = await removeBackground(file);
             
             const url = URL.createObjectURL(resultBlob);
             resultPreview.src = url;
